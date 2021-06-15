@@ -1,4 +1,4 @@
-select * from usr
+
 
 
 
@@ -11,9 +11,9 @@ select * from usr
 --3120958@gmail.com
 -- 15 40 4000=max
 
-create database FutureBallad120
+create database FutureBallad
 
-use FutureBallad120
+use FutureBallad
 --טבלת משתמש
 create table Usr(
 userId int identity primary key,--מזהה
@@ -30,12 +30,11 @@ comment nvarchar(max)--הערה
 
 
 create table Song(
-songId int identity primary key ,--מזהה
-tuneDesc int foreign key references TuneDesc(tuneDesc)not null,--מזהה משתמש שהעלה
-songName nvarchar(40),--שם
-songContect text not null,--מילות השיר/קשור לקובץ
-userId int foreign key references Usr(userId)not null,--מזהה משתמש שהעלה
-isPermit bit not null--האם מורשה לפרסום באתר הגלובלי bool, how to write?
+ songId int identity primary key ,--מזהה
+ songName nvarchar(40),--שם
+ songContect text not null,--מילות השיר/קשור לקובץ
+ userId int foreign key references Usr(userId)not null,--מזהה משתמש שהעלה
+ isPermit bit not null,--האם מורשה לפרסום באתר הגלובלי bool, how to write?
 )
 
 create table Tag(
