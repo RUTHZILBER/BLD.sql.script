@@ -1,6 +1,7 @@
 create database Ballad120
 --
 use Ballad120
+go
 create table Usr(
 userId int identity primary key,--מזהה
 userName nvarchar(40)unique ,--שם משתמש
