@@ -23,27 +23,25 @@ insert into Tag(TagName,songId,points)values('tomy',1,0)
 -----------------------
 -----------------------
 go
-use Ballad120
+
 --טבלת משתמש
-alter table Usr
-add unique(userName)
+create database Ballad117
+use Ballad117
 create table Usr(
 userId int identity primary key,--מזהה
 userName nvarchar(40)unique ,--שם משתמש
 firstName nvarchar(15) not null,--שם פרטי
 lastName nvarchar(15) not null,--שם משפחה
-email nvarchar(40) not null  unique,--שם משפחה--כתובת מייל
+email nvarchar(40) not null  unique,--כתובת מייל
 password nvarchar(15) not null,--סיסמא
 notingTime date,--תאריך רישום
 comment nvarchar(4000)--הערה
 )
 
 --טבלת שיר
-
-
 create table Song(
  songId int identity primary key ,--מזהה
- songName nvarchar(40),--שם
+ songName nvarchar(max),--שם
  songContect text not null,--מילות השיר/קשור לקובץ
  userId int foreign key references Usr(userId)not null,--מזהה משתמש שהעלה
  isPermit bit not null,--האם מורשה לפרסום באתר הגלובלי bool, how to write?
@@ -51,7 +49,7 @@ create table Song(
 
 create table Tag(
 tagId int identity primary key,--מזהה הטבלה
-tagName nvarchar(400),
+tagName nvarchar(max),
 points int not null,--מספר הנקודות לתגית.
 songId int foreign key references Song(songId)--מזהה השיר
 )
